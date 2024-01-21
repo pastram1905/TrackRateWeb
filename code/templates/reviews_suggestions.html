@@ -1,0 +1,39 @@
+{% extends "template.html" %}
+
+{% block subtitle %}
+Reviews suggestions
+{% endblock %}
+
+{% block main %}
+
+{% for review in suggested_reviews %}
+
+    <div class="suggested-review">
+        <div class="review-row">Username: {{ review["username"] }}</div>
+        <div class="review-row">Singer: {{ review["singer"] }}<br></div>
+        <div class="review-row">Song: {{ review["song"] }}<br></div>
+        <div class="review-row">Review: {{ review["review"] }}<br></div>
+        <div class="review-row">Lyrics: {{ review["lyrics"] }}<br></div>
+        <div class="review-row">Structure: {{ review["structure"] }}<br></div>
+        <div class="review-row">Performance: {{ review["performance"] }}<br></div>
+        <div class="review-row">Mixing: {{ review["mixing"] }}<br></div>
+        <div class="review-row">Individuality: {{ review["individuality"] }}<br></div>
+        <div class="review-row">Charisma: {{ review["charisma"] }}<br></div>
+        <div class="review-row">Atmosphere: {{ review["atmosphere"] }}<br></div>
+        <div class="review-row">Instrumental: {{ review["instrumental"] }}<br><br></div>
+
+        <form method="post" action="{{ url_for('publish_review') }}">
+            <input type="hidden" name="review_to_publish" value="{{ review['review_name'] }}">
+            <button class="publish-button" type="submit">Publish</button>
+        </form>
+
+        <form method="post" action="{{ url_for('reject_review') }}">
+            <input type="hidden" name="review_to_reject" value="{{ review['review_name'] }}">
+            <button class="reject-button" type="submit">Reject</button>
+        </form>
+
+    </div>
+
+{% endfor %}
+
+{% endblock %}

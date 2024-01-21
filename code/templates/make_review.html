@@ -1,0 +1,181 @@
+{% extends "template.html" %}
+
+{% block subtitle %}
+Make review
+{% endblock %}
+
+{% block main %}
+
+<div class="review-form-label"><h1>Review form</h1></div>
+
+<form class="review-form" action="make_review" method="post">
+    {{ form.csrf_token }}
+
+    <div class="form-label">{{ form.username.label }}<br></div>
+    <div class="form-field">{{ form.username }}<br></div>
+
+    <div class="form-label">{{ form.singer.label }}<br></div>
+    <div class="form-field">{{ form.singer }}<br></div>
+
+    <div class="form-label">{{ form.song.label }}<br></div>
+    <div class="form-field">{{ form.song }}<br></div>
+
+    <div class="form-label">{{ form.review.label }}<br></div>
+    <div class="form-field">{{ form.review }}<br></div>
+
+    <div class="form-label">
+        {{ form.lyrics.label }}
+        <span id="selected-value-lyrics">6</span><br>
+    </div>
+    <div class="form-field">
+        {{ form.lyrics }}
+        <script>
+            const lyricsInput = document.querySelector("input[name='lyrics']");
+            const selectedLyrics = document.getElementById("selected-value-lyrics");
+            lyricsInput.addEventListener("input",
+            () => {
+                selectedLyrics.textContent = `${lyricsInput.value}`;
+                }
+            );
+        </script>
+        <br>
+    </div>
+
+    <div class="form-label">
+        {{ form.structure.label }}
+        <span id="selected-value-structure">6</span><br>
+    </div>
+    <div class="form-field">
+        {{ form.structure }}
+        <script>
+            const structureInput = document.querySelector("input[name='structure']");
+            const selectedStructure = document.getElementById("selected-value-structure");
+            structureInput.addEventListener("input",
+            () => {
+                selectedStructure.textContent = `${structureInput.value}`;
+                }
+            );
+        </script>
+        <br>
+    </div>
+
+    <div class="form-label">
+        {{ form.performance.label }}
+        <span id="selected-value-performance">6</span><br>
+    </div>
+    <div class="form-field">
+        {{ form.performance }}
+        <script>
+            const performanceInput = document.querySelector("input[name='performance']");
+            const selectedPerformance = document.getElementById("selected-value-performance");
+            performanceInput.addEventListener("input",
+            () => {
+                selectedPerformance.textContent = `${performanceInput.value}`;
+                }
+            );
+        </script>
+        <br>
+    </div>
+
+    <div class="form-label">
+        {{ form.mixing.label }}
+        <span id="selected-value-mixing">6</span><br>
+    </div>
+    <div class="form-field">
+        {{ form.mixing }}
+        <script>
+            const mixingInput = document.querySelector("input[name='mixing']");
+            const selectedMixing = document.getElementById("selected-value-mixing");
+            mixingInput.addEventListener("input",
+            () => {
+                selectedMixing.textContent = `${mixingInput.value}`;
+                }
+            );
+        </script>
+        <br>
+    </div>
+
+    <div class="form-label">
+        {{ form.individuality.label }}
+        <span id="selected-value-individuality">6</span><br>
+    </div>
+    <div class="form-field">
+        {{ form.individuality }}
+        <script>
+            const individualityInput = document.querySelector("input[name='individuality']");
+            const selectedIndividuality = document.getElementById("selected-value-individuality");
+            individualityInput.addEventListener("input",
+            () => {
+                selectedIndividuality.textContent = `${individualityInput.value}`;
+                }
+            );
+        </script>
+        <br>
+    </div>
+
+    <div class="form-label">
+        {{ form.charisma.label }}
+        <span id="selected-value-charisma">6</span><br>
+    </div>
+    <div class="form-field">
+        {{ form.charisma }}
+        <script>
+            const charismaInput = document.querySelector("input[name='charisma']");
+            const selectedCharisma = document.getElementById("selected-value-charisma");
+            charismaInput.addEventListener("input",
+            () => {
+                selectedCharisma.textContent = `${charismaInput.value}`;
+                }
+            );
+        </script>
+        <br>
+    </div>
+
+    <div class="form-label">
+        {{ form.atmosphere.label }}
+        <span id="selected-value-atmosphere">6</span><br>
+    </div>
+    <div class="form-field">
+        {{ form.atmosphere }}
+        <script>
+            const atmosphereInput = document.querySelector("input[name='atmosphere']");
+            const selectedAtmosphere = document.getElementById("selected-value-atmosphere");
+            atmosphereInput.addEventListener("input",
+            () => {
+                selectedAtmosphere.textContent = `${atmosphereInput.value}`;
+                }
+            );
+        </script>
+        <br>
+    </div>
+
+    <div class="form-label">
+        {{ form.instrumental.label }}
+        <span id="selected-value-instrumental">6</span><br>
+    </div>
+    <div class="form-field">
+        {{ form.instrumental }}
+        <script>
+            const instrumentalInput = document.querySelector("input[name='instrumental']");
+            const selectedInstrumental = document.getElementById("selected-value-instrumental");
+            instrumentalInput.addEventListener("input",
+            () => {
+                selectedInstrumental.textContent = `${instrumentalInput.value}`;
+                }
+            );
+        </script>
+        <br>
+    </div>
+
+    <button class="review-submit-button" type="submit">SEND</button>
+</form>
+
+<p style="position: absolute;
+          top: 1200px;
+          color: transparent;">r</p>
+
+{% for message in get_flashed_messages() %}
+<p class="alert">{{ message }}</p>
+{% endfor %}
+
+{% endblock %}

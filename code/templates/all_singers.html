@@ -1,0 +1,19 @@
+{% extends "template.html" %}
+
+{% block subtitle %}
+All singers
+{% endblock %}
+
+{% block main %}
+
+<div class="singers-list">
+{% for singer in singers %}
+
+    <div style="padding: 20px;
+                font-style: bold;
+                font-weight: 700;">{{ singer[1] }} | Points: {{ singer[2] }}<br></div>
+
+{% endfor %}
+</div>
+
+{% endblock %}

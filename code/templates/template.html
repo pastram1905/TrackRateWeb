@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>TrackRate.com -{% block subtitle %}{% endblock %}</title>
+</head>
+<body>
+    <div class="header">
+        <a class="home-button" href="{{ url_for('home') }}">TrackRate.com</a>
+    </div>
+
+    <div class="sidebar">
+        <a href="{{ url_for('all_reviews') }}">ALL REVIEWS</a>
+        <a href="{{ url_for('all_singers') }}">ALL SINGERS</a>
+        <a href="{{ url_for('all_songs') }}">ALL SONGS</a>
+        <a href="{{ url_for('reviews_suggestions') }}">REVIEWS FOR CONSIDERATION</a>
+    </div>
+
+    <div class="main">
+        {% block main %}{% endblock %}
+    </div>
+</body>
+</html>

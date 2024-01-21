@@ -1,0 +1,19 @@
+{% extends "template.html" %}
+
+{% block subtitle %}
+All songs
+{% endblock %}
+
+{% block main %}
+
+<div class="songs-list">
+{% for song in songs %}
+
+    <div style="padding: 20px;
+                font-style: bold;
+                font-weight: 700;">{{ song[1] }} - {{ song[2] }} | Points: {{ song[3] }}<br></div>
+
+{% endfor %}
+</div>
+
+{% endblock %}
